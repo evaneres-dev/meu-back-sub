@@ -1,3 +1,5 @@
+
+
 batimentos = [72, 75, 80, 78, 76, 66, 77]
 
 exames = [
@@ -43,9 +45,34 @@ menor_batimento = min(batimentos)
 variabilidade = maior_batimento - menor_batimento
 print(f"Maior batimento: {maior_batimento}, Menor batimento: {menor_batimento}, Variabilidade: {variabilidade}")
 
-altura = input("Digite a altura em metros: ")
-peso = input("Digite o peso em kg: ")
+try:
+    altura = float(input("Digite a altura em metros (ex: 1,75): ").replace(',', '.'))
+    peso = float(input("Digite o peso em kg (ex: 70,5): ").replace(',', '.'))
 
-imc = float(peso) / (float(altura) ** 2)
-print(f"Seu IMC é: {imc:.2f}")
-print(type(imc))
+    if altura <= 0:
+        print("A altura deve ser maior que zero.")
+    else:
+        imc = peso / (altura ** 2)
+        print(f"\nSeu IMC é: {imc:.2f}")
+
+        if imc < 18.5:
+            print("Classificação: Abaixo do peso.")
+            print("Você NÃO está na faixa adequada.")
+        elif 18.5 <= imc <= 24.9:
+            print("Classificação: Peso normal.")
+            print("Parabéns! Você está na faixa adequada de saúde.")
+        elif 25.0 <= imc <= 29.9:
+            print("Classificação: Sobrepeso.")
+            print("Você NÃO está na faixa adequada.")
+        elif 30.0 <= imc <= 34.9:
+            print("Classificação: Obesidade Grau I.")
+            print("Você NÃO está na faixa adequada.")
+        elif 35.0 <= imc <= 39.9:
+            print("Classificação: Obesidade Grau II.")
+            print("Você NÃO está na faixa adequada.")
+        else:
+            print("Classificação: Obesidade Grau III (Mórbida).")
+            print("Você NÃO está na faixa adequada. Procure um médico.")
+
+except ValueError:
+    print("\n Erro: Você digitou letras ou símbolos. Digite apenas números.")
