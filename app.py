@@ -1,6 +1,6 @@
+import numpy as np
 
-
-batimentos = [72, 75, 80, 78, 76, 66, 77]
+batimentos = np.array([72, 75, 80, 78, 76, 66, 77])
 
 exames = [
     ["IMC", 24.5, "Normal"],
@@ -76,3 +76,10 @@ try:
 
 except ValueError:
     print("\n Erro: Você digitou letras ou símbolos. Digite apenas números.")
+
+batitmentos_ajustados = batimentos + 5
+print(batitmentos_ajustados)
+
+print(np.mean(batimentos))
+print(np.max(batimentos))
+print(np.min(batimentos))
