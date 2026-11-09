@@ -80,6 +80,6 @@ except ValueError:
 batitmentos_ajustados = batimentos + 5
 print(batitmentos_ajustados)
 
-print(np.mean(batimentos))
+print(np.mean(batimentos)) #media
 print(np.max(batimentos))
 print(np.min(batimentos))
